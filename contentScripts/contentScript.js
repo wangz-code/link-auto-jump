@@ -26,6 +26,7 @@ const timeOut = function (button) {
 function q(options = {}) {
   return document[options.c](options.el)[0];
 }
+
 // 网址库
 const urlLib = {
   "link.juejin.cn": {
