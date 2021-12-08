@@ -6,14 +6,13 @@
 // }
 
 // 跳转倒计时
-const timeOut = function (button) {
+const timeOut = function (button,target) {
   button.innerText = "即将跳转...3秒";
   let ms = 2;
   const timer = setInterval(function () {
     if (ms <= 1) {
         button.innerText= "已跳转"
-      const url = location.href.split("?target=")[1];
-      url && window.open(decodeURIComponent(url));
+        target && window.open(decodeURIComponent(target));
       clearInterval(timer);
     } else {
       button.innerText = "即将跳转..." + ms + "秒";
@@ -26,7 +25,6 @@ const timeOut = function (button) {
 function q(options = {}) {
   return document[options.c](options.el)[0];
 }
-
 // 网址库
 const urlLib = {
   "link.juejin.cn": {
@@ -44,10 +42,28 @@ const urlLib = {
     c: "getElementsByClassName",
     method: timeOut,
   },
+  "developers.weixin.qq.com": {
+    el: "text_area_title",
+    pathname: "/community/middlepage/href",
+    c: "getElementsByClassName",
+    method: timeOut,
+  },
 };
 
 window.onload = function () {
   const currHost = location.host;
+  const pathname = location.pathname;
   const jump = urlLib[currHost];
-  jump && jump.method(q(jump));
+  if(jump){
+    let url = '';
+    switch (currHost) {
+      case 'developers.weixin.qq.com':
+        url = pathname==jump.pathname?location.href.split('?href=')[1]:""
+        break;
+      default:
+        url =  location.href.split("?target=")[1];
+        break;
+    }
+    url&&jump.method(q(jump),url)
+  }
 };
