@@ -1,6 +1,7 @@
 # AutoJump
 
-chrome 插件, 适用于知乎, CSDN ,掘金,微信开放社区 点击链接, 目前我常用的自动跳转
+chrome 网页跳转插件, 
+适用于 知乎, CSDN ,掘金,微信开放社区, gitee.com, www.oschina.net 点击链接自动跳转
 
 ## 使用前
 
