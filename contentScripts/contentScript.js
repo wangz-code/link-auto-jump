@@ -19,28 +19,28 @@ function q(options = {}) {
 }
 // 网址库
 const urlLib = {
-  'link.juejin.cn': {
+  'link.juejin.cn/': {
     el: 'btn',
   },
-  'link.csdn.net': {
+  'link.csdn.net/': {
     el: 'loading-btn',
   },
-  'link.zhihu.com': {
+  'link.zhihu.com/': {
     el: 'button',
   },
-  'developers.weixin.qq.com': {
+  'developers.weixin.qq.com/community/middlepage/href': {
     el: 'text_area_title',
   },
-  'gitee.com': {
+  'gitee.com/link': {
     el: 'button',
   },
-  'www.oschina.net': {
+  'www.oschina.net/action/GoToLink': {
     el: 'link-button',
   },
 }
 
 window.onload = function () {
-  const currHost = location.host
+  const currHost = location.host + location.pathname
   const jump = urlLib[currHost]
   if (jump) {
     const text = document.getElementsByTagName('body')[0].innerText
