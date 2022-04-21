@@ -1,7 +1,9 @@
-# AutoJump
+# AutoJump chrome 网页外链跳转插件
 
-chrome 网页跳转插件, 
-适用于 知乎, CSDN ,掘金,微信开放社区, gitee.com, oschina 点击链接自动跳转
+
+- 适用于 知乎, CSDN ,掘金,微信开放社区, gitee.com, oschina 点击链接自动跳转
+
+- 新增: angular.io 自动跳转到中文站 angular.cn
 
 ## 使用前
 
