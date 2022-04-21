@@ -8,8 +8,9 @@ function httpString(s) {
 
 // 跳转倒计时
 const timeOut = function (button, target) {
-	location.href = decodeURIComponent(target);
+	// location.href = decodeURIComponent(target);
 	button.innerText = "正在跳转...";
+	window.open(decodeURIComponent(target))
 };
 
 // 获取页面dom
