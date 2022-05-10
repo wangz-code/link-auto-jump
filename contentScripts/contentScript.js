@@ -10,6 +10,7 @@ function httpString(s) {
 const timeOut = function (button, target) {
 	// location.href = decodeURIComponent(target);
 	button.innerText = "正在跳转...";
+	window.close();
 	window.open(decodeURIComponent(target))
 };
 
