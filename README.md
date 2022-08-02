@@ -4,6 +4,7 @@
 - 适用于 知乎, CSDN ,掘金,微信开放社区, gitee.com, oschina 点击链接自动跳转
 
 - 新增: angular.io 自动跳转到中文站 angular.cn
+- 新增: github 仓库加速地址
 
 ## 使用前
 
@@ -16,3 +17,5 @@
 ## 使用后
 
 [![oss7sH.md.png](https://s4.ax1x.com/2021/12/06/oss7sH.md.png)](https://imgtu.com/i/oss7sH)
+
+![](https://raw.githubusercontent.com/WangSunio/img/main/images/122.png)

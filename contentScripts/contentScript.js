@@ -11,7 +11,7 @@ const timeOut = function (button, target) {
 	// location.href = decodeURIComponent(target);
 	button.innerText = "正在跳转...";
 	window.close();
-	window.open(decodeURIComponent(target))
+	window.open(decodeURIComponent(target));
 };
 
 // 获取页面dom
@@ -69,6 +69,32 @@ window.onload = function () {
 	// 自动重定向到中文文档
 	if (location.host == "angular.io") {
 		location.href = location.href.replaceAll(".io", ".cn");
+	}
+	// 隐藏百度广告
+	if (location.host == "baike.baidu.com") {
+		var ad = document.getElementById("side_box_unionAd");
+		ad.style.display = "none";
+	}
+
+	// github 加速
+	if (location.host == "github.com") {
+		var btnDom = document.getElementsByTagName("get-repo");
+		if (btnDom && btnDom.length == 1) {
+			repBtn = btnDom[0];
+			repBtn.onclick = function () {
+				b = document.getElementsByClassName("input-group")[0];
+				var fasetUrl = b.innerHTML.replaceAll("https://github.com", "https://hub.fastgit.xyz");
+				b.parentElement.innerHTML = `
+					<div class="input-group">${b.innerHTML}</div>
+					<div style="display:flex;align-items:center;justify-content: center;">
+						<span style="border-top:1px #2b2929 dashed; ;width: 40%;"></span>
+						<span style="width: 20%;text-align: center;">加速</span>
+						<span style="border-top:1px #2b2929 dashed;;width: 40%;"></span>
+					</div>
+					<div class="input-group"> ${fasetUrl} </div>
+				`;
+			};
+		}
 	}
 
 	if (currHost == LINKLIB.csdn) hiddenCsdnLoginModal();
