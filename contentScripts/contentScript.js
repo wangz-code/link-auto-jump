@@ -45,18 +45,6 @@ const LINKLIB = {
 	csdn: "link.csdn.net/",
 };
 
-// csdn隐藏登陆弹窗
-function hiddenCsdnLoginModal() {
-	const hidden = `
-    <style>
-      .passport-login-container{
-          display: none !important;
-      }
-    </style>
-  `;
-	document.head.innerHTML = document.head.innerHTML.concat(hidden);
-}
-
 window.onload = function () {
 	const currHost = location.host + location.pathname;
 	const jump = urlLib[currHost];
@@ -66,36 +54,21 @@ window.onload = function () {
 		url && timeOut(q(jump), url);
 	}
 
-	// 自动重定向到中文文档
+	// angular 自动重定向到中文文档
 	if (location.host == "angular.io") {
 		location.href = location.href.replaceAll(".io", ".cn");
 	}
+	
+	// antvue 自动重定向到中文文档
+	if (location.host == "antdv.com") {
+		if (!location.href.includes("overview-cn")) {
+			location.href = location.href.replaceAll("overview", "overview-cn");
+		}
+	}
+
 	// 隐藏百度广告
 	if (location.host == "baike.baidu.com") {
 		var ad = document.getElementById("side_box_unionAd");
 		ad.style.display = "none";
 	}
-
-	// github 加速
-	if (location.host == "github.com") {
-		var btnDom = document.getElementsByTagName("get-repo");
-		if (btnDom && btnDom.length == 1) {
-			repBtn = btnDom[0];
-			repBtn.onclick = function () {
-				b = document.getElementsByClassName("input-group")[0];
-				var fasetUrl = b.innerHTML.replaceAll("https://github.com", "https://hub.fastgit.xyz");
-				b.parentElement.innerHTML = `
-					<div class="input-group">${b.innerHTML}</div>
-					<div style="display:flex;align-items:center;justify-content: center;">
-						<span style="border-top:1px #2b2929 dashed; ;width: 40%;"></span>
-						<span style="width: 20%;text-align: center;">加速</span>
-						<span style="border-top:1px #2b2929 dashed;;width: 40%;"></span>
-					</div>
-					<div class="input-group"> ${fasetUrl} </div>
-				`;
-			};
-		}
-	}
-
-	if (currHost == LINKLIB.csdn) hiddenCsdnLoginModal();
 };
