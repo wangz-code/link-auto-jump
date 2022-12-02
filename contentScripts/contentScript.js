@@ -73,6 +73,5 @@ window.onload = function () {
 	}
 	// 移除页面灵车灰
 	document.getElementsByTagName("html")[0].style.filter = "unset"
-	document.getElementsByTagName("body")[0].className = ""
 
 };
