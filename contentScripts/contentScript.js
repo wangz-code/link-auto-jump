@@ -71,4 +71,8 @@ window.onload = function () {
 		var ad = document.getElementById("side_box_unionAd");
 		ad.style.display = "none";
 	}
+	// 移除页面灵车灰
+	document.getElementsByTagName("html")[0].className = ""
+
+
 };
