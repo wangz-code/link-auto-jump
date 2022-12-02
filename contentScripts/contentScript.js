@@ -72,7 +72,7 @@ window.onload = function () {
 		ad.style.display = "none";
 	}
 	// 移除页面灵车灰
-	document.getElementsByTagName("html")[0].className = ""
+	document.getElementsByTagName("html")[0].style.filter = "unset"
 
 
 };
