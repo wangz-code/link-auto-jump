@@ -23,11 +23,11 @@ window.onload = function () {
 	const bodyText = document.body.innerText;
 	const text = bodyText.match(/[\u4e00-\u9fa5]/g);
 	const urls = httpString(bodyText);
-	if (text.length < 100 && urls && urls.length == 1 && bodyText.includes("安全")) {
+	if (text&&text.length < 100 && urls && urls.length == 1 && bodyText.includes("安全")) {
 		window.close();
 		window.open(urls[0]);
 	}
 
 	// 移除页面灵车灰
-	document.getElementsByTagName("html")[0].style.filter = "unset";
+	// document.getElementsByTagName("html")[0].style.filter = "unset";
 };
