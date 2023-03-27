@@ -30,4 +30,11 @@ window.onload = function () {
 
 	// 移除页面灵车灰
 	// document.getElementsByTagName("html")[0].style.filter = "unset";
+	// 隐藏广告
+	if (location.host == "www.weather.com.cn") {
+		document.getElementsByClassName("_aum7a5ei40o")[0].style.display = "none"
+		document.getElementsByClassName("topad_bg")[0].style.display = "none"
+	}
+
+	
 };
