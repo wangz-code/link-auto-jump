@@ -5,6 +5,14 @@ function httpString(s) {
 	s = s.match(reg);
 	return s;
 }
+function classNone(cls) {
+	var dom = document.getElementsByClassName(cls);
+	for (let i = 0; i < cls.length; i++) {
+		if (dom[i] && dom[i].style) {
+			dom[i].style.display = "none";
+		}
+	}
+}
 
 window.onload = function () {
 	// angular 自动重定向到中文文档
@@ -23,7 +31,7 @@ window.onload = function () {
 	const bodyText = document.body.innerText;
 	const text = bodyText.match(/[\u4e00-\u9fa5]/g);
 	const urls = httpString(bodyText);
-	if (text&&text.length < 100 && urls && urls.length == 1 && bodyText.includes("安全")) {
+	if (text && text.length < 100 && urls && urls.length == 1 && bodyText.includes("安全")) {
 		window.close();
 		window.open(urls[0]);
 	}
@@ -32,9 +40,13 @@ window.onload = function () {
 	// document.getElementsByTagName("html")[0].style.filter = "unset";
 	// 隐藏广告
 	if (location.host == "www.weather.com.cn") {
-		document.getElementsByClassName("_aum7a5ei40o")[0].style.display = "none"
-		document.getElementsByClassName("topad_bg")[0].style.display = "none"
+		classNone("_aum7a5ei40o");
+		classNone("topad_bg");
 	}
-
-	
+	// 隐藏知乎广告
+	if (location.host == "www.zhihu.com") {
+		classNone("Question-sideColumn");
+		classNone("Question-mainColumn");
+		classNone("Pc-card Card");
+	}
 };
