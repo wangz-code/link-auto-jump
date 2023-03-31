@@ -5,11 +5,16 @@ function httpString(s) {
 	s = s.match(reg);
 	return s;
 }
+
 function classNone(cls) {
 	var dom = document.getElementsByClassName(cls);
-	for (let i = 0; i < cls.length; i++) {
-		if (dom[i] && dom[i].style) {
-			dom[i].style.display = "none";
+	if (dom.length == 0) {
+		return;
+	} else {
+		for (let i = 0; i < dom.length; i++) {
+			if (dom[i] && dom[i].style) {
+				dom[i].style.display = "none";
+			}
 		}
 	}
 }
@@ -46,7 +51,7 @@ window.onload = function () {
 	// 隐藏知乎广告
 	if (location.host == "www.zhihu.com") {
 		classNone("Question-sideColumn");
-		classNone("Question-mainColumn");
 		classNone("Pc-card Card");
+		classNone("Banner-adsense");
 	}
 };
