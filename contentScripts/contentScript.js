@@ -19,6 +19,15 @@ function classNone(cls) {
 	}
 }
 
+// 清理定时器
+const cleanTime = () => {
+	let endTid = setTimeout(function () {});
+	for (let i = 0; i <= endTid; i++) {
+		clearTimeout(i);
+		clearInterval(i);
+	}
+};
+
 window.onload = function () {
 	// angular 自动重定向到中文文档
 	if (location.host == "angular.io") {
@@ -32,7 +41,7 @@ window.onload = function () {
 		}
 	}
 
-	// 自动跳转
+	// 点击链接,自动跳转
 	const bodyText = document.body.innerText;
 	const text = bodyText.match(/[\u4e00-\u9fa5]/g);
 	const urls = httpString(bodyText);
@@ -48,10 +57,18 @@ window.onload = function () {
 		classNone("_aum7a5ei40o");
 		classNone("topad_bg");
 	}
+	// 一言
+	if (location.host == "yiyan.baidu.com") cleanTime();
+
+	// NuNu
+	if (location.host.includes("nunuyy5")) cleanTime();
 	// 隐藏知乎广告
-	if (location.host == "www.zhihu.com") {
-		classNone("Question-sideColumn");
-		classNone("Pc-card Card");
-		classNone("Banner-adsense");
+	// 隐藏知乎图片
+	if (location.host.includes("zhihu.com")) {
+		window.addEventListener("scroll", () => {
+			classNone("Question-sideColumn");
+			classNone("Pc-card Card");
+			classNone("Banner-adsense");
+		});
 	}
 };
