@@ -13,8 +13,16 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "notifications"
+    "scripting",
+    "tabs",
+    "notifications",
+    "contextMenus",
+    "activeTab",
+    "storage"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": [
